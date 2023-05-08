@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <!--guess the number game
+    - maskinen må lage ett tilfedig tall, 1-100 ?
+    - brukeren må kunne skrive inn hvilket tall som gjettes
+    - en knapp for å "sende" tallet
+    - finne ut om tallet var riktig, for høyt eller for lavt
+    - tilbakemedling til brukeren, skrive ut en beskjed
+    -->
+    <h1>guess the number</h1>
+    <p id="tilbakemelding"></p>
+    <h2 id="timer">Tid: 0 sec</h2>
+
+    <input  class="button-85" type="text" name="3" id="guess"><br><br>
+    <button id="knapp" class="button-85" role="button">guess</button>
+    <button id="restart_knapp" class="button-85" role="button">restart</button>
+    
+
+
+
+    <script>
+    var randomtall = Math.floor(Math.random () * 100);
+    var gjette_felt = document.querySelector('#guess')
+    var knapp = document.querySelector('#knapp')
+    var tilbakemelding = document.querySelector('#tilbakemelding')
+    var ELrestart = document.querySelector('#restart_knapp')
+    var EL_timer = document.querySelector('#timer')
+
+    function gjett(){//funksjon som kjører nå vi trykker på knapp
+
+        // hente tallet vi skrev inn. Leser verdi fra gjette_felt
+        gjettet_tall = gjette_felt.value
+
+
+        // finne ut om tallet var riktig, for høyt eller for lavt
+        // hvis riktig gjett
+        if (gjettet_tall == randomtall){
+            tilbakemelding.innerHTML ='du gjettet riktig'//tilbakemelding
+            randomtall = Math.floor(Math.random () * 100);
+        }
+        else if (gjettet_tall > randomtall){
+            tilbakemelding.innerHTML = 'for høyt'
+        }
+        else if (gjettet_tall < randomtall){
+            tilbakemelding.innerHTML = 'for lavt'
+
+
+        }
+    }
+
+
+
+
+
+    function prestart(){
+        // hva må skje her?
+        randomtall = Math.floor(Math.random () * 100);
+        }
+ 
+
+
+ 
+
+
+        
+    //hente tallet vi skrev inn. leser verdi fra gjette felt
+        console.log()
+
+        
+    ELrestart.addEventListener('click',prestart)
+    knapp.addEventListener('click',gjett)
+    console.log(randomtall)
+
+    var teller = 0
+    function myTimer(){
+        console.log('timer: '+ teller)
+        teller++
+        EL_timer.innerHTML = "Tid: " + teller + " sec"
+    }
+    setInterval(myTimer, 1000) // kjører funksjonen myTimer hvert sekund, (1000ms)
+ 
+
+
+
+
+
+    </script>
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+</body>
+</html>

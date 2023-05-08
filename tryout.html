@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Gambling Game</title>
+  <link rel="stylesheet" type="text/css" href="try.css">
+</head>
+l
+
+
+<body>
+  <h1>Dice Gambling Game</h1>
+  <p id="result"></p>
+  <button onclick="rollDice()">Roll Dice</button>
+  <input type="number" id="betAmount" placeholder="Enter bet amount">
+  <button onclick="placeBet()">Place Bet</button>
+  <p id="balance">Balance: $100</p>
+
+  <script src="script.js">
+    let balance = 100;
+
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+function placeBet() {
+  const betAmount = Number(document.getElementById("betAmount").value);
+  const diceRoll = rollDice();
+  const resultElement = document.getElementById("result");
+  const balanceElement = document.getElementById("balance");
+
+  if (isNaN(betAmount) || betAmount <= 0) {
+    resultElement.textContent = "Please enter a valid bet amount.";
+    return;
+  }
+
+  if (betAmount > balance) {
+    resultElement.textContent = "Insufficient balance.";
+    return;
+  }
+
+  const isWin = diceRoll > 3; // Customize the winning condition here
+
+  if (isWin) {
+    balance += betAmount;
+    resultElement.textContent = `You rolled a ${diceRoll}. You win $${betAmount}!`;
+  } else {
+    balance -= betAmount;
+    resultElement.textContent = `You rolled a ${diceRoll}. You lose $${betAmount}.`;
+  }
+
+  balanceElement.textContent = `Balance: $${balance}`;
+}
+
+  </script>
+</body>
+</html>
