@@ -7,8 +7,12 @@ var EL_bet100 = document.querySelector('#bet100')
 var randomtall = Math.floor(Math.random () * 100);
 var EL_bet200 = document.querySelector('#bet200')
 
+var EL_div = document.querySelector('#game1')
+var EL_startgame = document.querySelector('#startgame')
 
 
+EL_div.style.display = "None"
+//EL_div.style.display = "Block"
 
 function clickmoney(){
    money = money + 1;
@@ -62,9 +66,18 @@ function bet200(){
 }
 
 
+function reveal(){
+    EL_div.style.display = "block"
+    console.log("reveal")
+
+}
+
+
 EL_bet100.addEventListener('click', bet100)
 EL_moneyButton.addEventListener('click', clickmoney)
 EL_bet200.addEventListener('click',bet200)
+EL_startgame.addEventListener('click',reveal)
+
 
 
 
