@@ -15,8 +15,15 @@ var EL_menu = document.querySelector('#logo')
 var EL_back = document.querySelector('#backtomenu')
 var EL_randomtall1 = document.getElementById('randomtall')
 var EL_bet500 = document.querySelector('#bet500')
+var EL_input = document.querySelector('#inputNR')
+var EL_game2 = document.querySelector('#game2')
+var EL_startgame2 = document.querySelector('#roulett')
 
 
+
+
+
+EL_game2.style.display = "none"
 EL_div.style.display = "None"
 EL_logo.style.display = "None"
 EL_menu.style.display = "block"
@@ -82,6 +89,7 @@ function reveal(){
     EL_menu.style.display = "none"
     EL_back.style.display = "block"
     document.getElementById('randomtall1').innerHTML = (randomtall)
+    EL_game2.style.display = "none"
 
 }
 
@@ -90,6 +98,7 @@ function menureveal(){
     EL_logo.style.display = "none"
     EL_menu.style.display = "block"
     EL_back.style.display = "none"
+    EL_game2.style.display = "none"
 
 
 }
@@ -113,6 +122,13 @@ function randittall3(){
 
 }
 
+function game2(){
+    EL_menu.style.display = "none"
+    EL_game2.style.display = "block"
+    EL_back.style.display = "block"
+
+
+}
 
 EL_bet100.addEventListener('click', bet100)
 EL_moneyButton.addEventListener('click', clickmoney)
@@ -120,7 +136,7 @@ EL_bet200.addEventListener('click',bet200)
 EL_startgame.addEventListener('click',reveal)
 EL_back.addEventListener('click',menureveal)
 EL_bet500.addEventListener('click',bet500)
-
+EL_startgame2.addEventListener('click',game2)
 
 
 

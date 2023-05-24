@@ -34,7 +34,7 @@
     &::after {
       transform: rotate(-45deg);
     }
-  }
+  
   
   @keyframes fall {
     to {
@@ -105,4 +105,14 @@ h1 {
 #money_amount{
     color: aliceblue;
     font: 4em sans-serif;
+}
+
+#gamlogo{
+    width: 300px;
+    height: 300px;
+}
+
+#roulett{
+    width: 230px ;
+    height: 230px;
 }
