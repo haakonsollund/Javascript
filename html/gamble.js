@@ -7,7 +7,6 @@ var EL_money = document.querySelector('#money_amount')
 var EL_bet100 = document.querySelector('#bet100')
 var randomtall = Math.floor(Math.random () * 100);
 var EL_bet200 = document.querySelector('#bet200')
-
 var EL_div = document.querySelector('#game1')
 var EL_startgame = document.querySelector('#gamestart')
 var EL_logo = document.querySelector('#gamlogo')
@@ -18,8 +17,8 @@ var EL_bet500 = document.querySelector('#bet500')
 var EL_input = document.querySelector('#inputNR')
 var EL_game2 = document.querySelector('#game2')
 var EL_startgame2 = document.querySelector('#roulett')
-
-
+var EL_guess = document.querySelector('#knapp')
+var tilbakemelding = document.querySelector('#tilbakemelding')
 
 
 
@@ -37,6 +36,8 @@ function clickmoney(){
 
 
 }
+
+
 
 
 function bet100(){
@@ -123,10 +124,30 @@ function randittall3(){
 }
 
 function game2(){
+    var randomtall = Math.floor(Math.random () * 10);
+    console.log(randomtall);
     EL_menu.style.display = "none"
     EL_game2.style.display = "block"
     EL_back.style.display = "block"
+    
 
+}
+
+
+gjettet_tall = EL_input.value
+function guess(){
+
+    
+    gjettet_tall = EL_input.value
+
+    if(gjettet_tall == EL_input){
+        tilbakemelding.innerHTML = 'du vinner 5000'
+        money = money + 5000
+    }else if(gjettet_tall > EL_input){
+        tilbakemelding.innerHTML = 'Feil du taper'
+    }else if(gjettet_tall < EL_input){
+        tilbakemelding.innerHTML = 'feil du tapte'
+    }
 
 }
 
@@ -137,6 +158,7 @@ EL_startgame.addEventListener('click',reveal)
 EL_back.addEventListener('click',menureveal)
 EL_bet500.addEventListener('click',bet500)
 EL_startgame2.addEventListener('click',game2)
+EL_guess.addEventListener('click',guess)
 
 
 
