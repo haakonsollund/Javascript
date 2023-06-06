@@ -19,6 +19,15 @@ var EL_game2 = document.querySelector('#game2')
 var EL_startgame2 = document.querySelector('#roulett')
 var EL_guess = document.querySelector('#knapp')
 var tilbakemelding = document.querySelector('#tilbakemelding')
+var horselogo = document.querySelector('#horselogo')
+var game3 = document.querySelector('#game3')
+var startrace = document.querySelector('#startrace')
+var horse = document.querySelector('#horse')
+
+var raceactive1 = false
+
+var horsespeed1 = 0
+
 
 
 
@@ -28,6 +37,8 @@ EL_logo.style.display = "None"
 EL_menu.style.display = "block"
 EL_back.style.display = "none"
 document.getElementById('randomtall1').style.display = "block"
+game3.style.display = "none"
+
 
 function clickmoney(){
    money = money + 1;
@@ -129,6 +140,9 @@ function game2(){
     EL_menu.style.display = "none"
     EL_game2.style.display = "block"
     EL_back.style.display = "block"
+
+    EL_back.style.top = (parseInt(top) + 1) + "px"
+    EL_back.style.left
     
 
 }
@@ -151,6 +165,48 @@ function guess(){
 
 }
 
+
+
+function horsegame(){
+      EL_startgame.style.display = "none"
+      EL_startgame2.style.display = "none"
+      EL_moneyButton.style.display = "none"
+      EL_menu.style.display = "none"
+      game3.style.display = "block"
+
+    
+}
+
+function raceactive() {
+    raceactive1 = true
+    horseposition = -600
+    horsespeed1 = Math.floor(Math.random() * 10) + 1;
+
+}
+
+function race(){
+    if (raceactive1 == true) {
+        console.log("testhorse")
+       
+        horseposition  += horsespeed1 
+        horse.style.left = horseposition + 'px';
+        console.log("horsepos: ",horseposition)
+
+    }
+    stoprace()
+
+   
+}
+
+
+function stoprace(){
+    if(horseposition > 600){
+        raceactive1 = false
+    }
+}
+
+    setInterval(race, 10) 
+
 EL_bet100.addEventListener('click', bet100)
 EL_moneyButton.addEventListener('click', clickmoney)
 EL_bet200.addEventListener('click',bet200)
@@ -159,6 +215,9 @@ EL_back.addEventListener('click',menureveal)
 EL_bet500.addEventListener('click',bet500)
 EL_startgame2.addEventListener('click',game2)
 EL_guess.addEventListener('click',guess)
+horselogo.addEventListener('click',horsegame)
+startrace.addEventListener('click',raceactive)
+
 
 
 
