@@ -129,13 +129,15 @@ h1 {
   height: 150px;
 }
 
-#horse {
+#horse1 {
   position: relative;
   left: -600px;
 }
 
 #game3 {
   width: max-content;
+  display: flex;
+  flex-direction: column;
 }
 
 

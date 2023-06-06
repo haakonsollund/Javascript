@@ -22,11 +22,16 @@ var tilbakemelding = document.querySelector('#tilbakemelding')
 var horselogo = document.querySelector('#horselogo')
 var game3 = document.querySelector('#game3')
 var startrace = document.querySelector('#startrace')
-var horse = document.querySelector('#horse')
+var horse1 = document.querySelector('#horse1')
+var horse2 = document.querySelector('#horse2')
+var horse3 = document.querySelector('#horse3')
+var horse4 = document.querySelector('#horse4')
 
 var raceactive1 = false
 
 var horsespeed1 = 0
+
+var horseposition1 = -600
 
 
 
@@ -179,7 +184,7 @@ function horsegame(){
 
 function raceactive() {
     raceactive1 = true
-    horseposition = -600
+    horseposition1 = -600
     horsespeed1 = Math.floor(Math.random() * 10) + 1;
 
 }
@@ -188,9 +193,9 @@ function race(){
     if (raceactive1 == true) {
         console.log("testhorse")
        
-        horseposition  += horsespeed1 
-        horse.style.left = horseposition + 'px';
-        console.log("horsepos: ",horseposition)
+        horseposition1  += horsespeed1 
+        horse1.style.left = horseposition1 + 'px';
+        console.log("horsepos: ",horseposition1)
 
     }
     stoprace()
@@ -200,7 +205,7 @@ function race(){
 
 
 function stoprace(){
-    if(horseposition > 600){
+    if(horseposition1 > 600){
         raceactive1 = false
     }
 }
