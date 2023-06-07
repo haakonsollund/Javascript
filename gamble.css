@@ -134,8 +134,31 @@ h1 {
   left: -600px;
 }
 
+#horse2 {
+  position: relative;
+  left: -600px;
+}
+
+#horse3 {
+  position: relative;
+  left: -600px;
+}
+
+#horse4 {
+  position: relative;
+  left: -600px;
+}
+
+
+
 #game3 {
   width: max-content;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.hestcol {
   display: flex;
   flex-direction: column;
 }

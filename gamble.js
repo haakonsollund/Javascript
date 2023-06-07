@@ -30,8 +30,19 @@ var horse4 = document.querySelector('#horse4')
 var raceactive1 = false
 
 var horsespeed1 = 0
-
 var horseposition1 = -600
+
+var horsespeed2 = 0
+var horseposition2 = -600
+
+var horsespeed3 = 0
+var horseposition3 = -600
+
+var horsespeed4 = 0
+var horseposition4 = -600
+
+var race_end = false
+
 
 
 
@@ -185,20 +196,48 @@ function horsegame(){
 function raceactive() {
     raceactive1 = true
     horseposition1 = -600
+
+    chosen_horse = 1
+
     horsespeed1 = Math.floor(Math.random() * 10) + 1;
+
+    horseposition2 = -600
+    horsespeed2 = Math.floor(Math.random() * 10) + 1;
+
+    horseposition3 = -600
+    horsespeed3 = Math.floor(Math.random() * 10) + 1;
+
+    horseposition4 = -600
+    horsespeed4 = Math.floor(Math.random() * 10) + 1;
+
 
 }
 
 function race(){
+
+    
     if (raceactive1 == true) {
         console.log("testhorse")
        
         horseposition1  += horsespeed1 
         horse1.style.left = horseposition1 + 'px';
-        console.log("horsepos: ",horseposition1)
+        console.log("horsepos1: ",horseposition1)
 
+        horseposition2  += horsespeed2
+        horse2.style.left = horseposition2 + 'px';
+        console.log("horsepos2: ",horseposition2)
+
+        horseposition3  += horsespeed3
+        horse3.style.left = horseposition3 + 'px';
+        console.log("horsepos3: ",horseposition3)
+
+        horseposition4  += horsespeed4
+        horse4.style.left = horseposition4 + 'px';
+        console.log("horsepos4: ",horseposition4)
+
+        stoprace()
     }
-    stoprace()
+    
 
    
 }
@@ -207,6 +246,37 @@ function race(){
 function stoprace(){
     if(horseposition1 > 600){
         raceactive1 = false
+        winhorse = 1
+        race_end = true
+        
+
+    }else if(horseposition2 > 600){
+        raceactive1 = false
+        winhorse = 2
+        race_end = true
+        
+        
+    }else if(horseposition3 > 600){
+        raceactive1 = false
+        winhorse = 3
+        race_end = true
+        
+
+    }else if(horseposition4 > 600){
+        raceactive1 = false
+        winhorse = 4
+        race_end = true
+        
+
+    }
+
+
+    if (race_end == true) { // hvis race er ferdig kjør denne koden:
+        if(chosen_horse == winhorse){
+            money = money + 1000
+            console.log("u bet correct horse")
+            race_end = false
+        }
     }
 }
 
@@ -222,6 +292,15 @@ EL_startgame2.addEventListener('click',game2)
 EL_guess.addEventListener('click',guess)
 horselogo.addEventListener('click',horsegame)
 startrace.addEventListener('click',raceactive)
+
+
+
+
+
+
+
+
+
 
 
 
