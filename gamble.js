@@ -26,23 +26,30 @@ var horse1 = document.querySelector('#horse1')
 var horse2 = document.querySelector('#horse2')
 var horse3 = document.querySelector('#horse3')
 var horse4 = document.querySelector('#horse4')
+var bthrs1 = document.querySelector('#bthrs1')
+var bthrs2 = document.querySelector('#bthrs2')
+var bthrs3 = document.querySelector('#bthrs3')
+var bthrs4 = document.querySelector('#bthrs4')
+
+
 
 var raceactive1 = false
 
 var horsespeed1 = 0
-var horseposition1 = -600
+var horseposition1 = 0
 
 var horsespeed2 = 0
-var horseposition2 = -600
+var horseposition2 = 0
 
 var horsespeed3 = 0
-var horseposition3 = -600
+var horseposition3 = 0
 
 var horsespeed4 = 0
-var horseposition4 = -600
+var horseposition4 = 0
 
 var race_end = false
 
+var chosen_horse = 0
 
 
 
@@ -193,27 +200,65 @@ function horsegame(){
     
 }
 
+
+function bethorse1(){
+    if(money>399){
+        money = money - 400
+        EL_money.innerHTML = money 
+        chosen_horse = 1
+    }
+    stoprace()
+}
+
+
+function bethorse2(){
+    if(money>399){
+        money = money - 400
+        EL_money.innerHTML = money 
+        chosen_horse = 2
+    }
+    stoprace()
+}
+
+function bethorse3(){
+    if(money>399){
+        money = money - 400
+        EL_money.innerHTML = money 
+        chosen_horse = 3
+    }
+    stoprace()
+}
+
+function bethorse4(){
+    if(money>399){
+        money = money - 400
+        EL_money.innerHTML = money 
+        chosen_horse = 4
+    }
+    stoprace()
+}
 function raceactive() {
     raceactive1 = true
-    horseposition1 = -600
+    horseposition1 = 0
 
-    chosen_horse = 1
+    
 
     horsespeed1 = Math.floor(Math.random() * 10) + 1;
 
-    horseposition2 = -600
+    horseposition2 = 0
     horsespeed2 = Math.floor(Math.random() * 10) + 1;
 
-    horseposition3 = -600
+    horseposition3 = 0
     horsespeed3 = Math.floor(Math.random() * 10) + 1;
 
-    horseposition4 = -600
+    horseposition4 = 0
     horsespeed4 = Math.floor(Math.random() * 10) + 1;
 
 
 }
 
 function race(){
+    console.log(chosen_horse)
 
     
     if (raceactive1 == true) {
@@ -244,25 +289,25 @@ function race(){
 
 
 function stoprace(){
-    if(horseposition1 > 600){
+    if(horseposition1 > 1300){
         raceactive1 = false
         winhorse = 1
         race_end = true
         
 
-    }else if(horseposition2 > 600){
+    }else if(horseposition2 > 1300){
         raceactive1 = false
         winhorse = 2
         race_end = true
         
         
-    }else if(horseposition3 > 600){
+    }else if(horseposition3 > 1300){
         raceactive1 = false
         winhorse = 3
         race_end = true
         
 
-    }else if(horseposition4 > 600){
+    }else if(horseposition4 > 1300){
         raceactive1 = false
         winhorse = 4
         race_end = true
@@ -276,8 +321,13 @@ function stoprace(){
             money = money + 1000
             console.log("u bet correct horse")
             race_end = false
+            console.log(chosen_horse)
+            EL_money.innerHTML = money  
+            
         }
     }
+
+    
 }
 
     setInterval(race, 10) 
@@ -292,16 +342,7 @@ EL_startgame2.addEventListener('click',game2)
 EL_guess.addEventListener('click',guess)
 horselogo.addEventListener('click',horsegame)
 startrace.addEventListener('click',raceactive)
-
-
-
-
-
-
-
-
-
-
-
-
-
+bthrs1.addEventListener('click',bethorse1)
+bthrs2.addEventListener('click',bethorse2)
+bthrs3.addEventListener('click',bethorse3)
+bthrs4.addEventListener('click',bethorse4)
