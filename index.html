@@ -32,27 +32,34 @@
         -you bet on the horse you think is gonna win every horse gets a random speed and if the horse you bet on wins u get 3X monney 
 
     -->
+    <div class="moneylogo">
+        <img id = "dollar_img" src="logo.png" alt="Description of the image">
+        <p id="money_amount">You have 0$</p>
+    </div>
+
     <div id = logo>
-          <img id = "dollar_img" src="logo.png" alt="Description of the image">
-        <h1>money </h1>
-        <br>
-        <img src="game1.png" id = "gamestart">
-        <img src="roulett.png" id="roulett">
-        <img src="horselogo.png" id="horselogo">
+          
+        
+        <img src="game1.png" id = "gamestart" class="gamelogos">
+        <img src="roulett.png" id="roulett" class="gamelogos">
+        <img src="horselogo.png" id="horselogo" class="gamelogos">¨
+        
         
         <br>
        
 
         
     </div>
+    <img src="slot-r.gif" id = "slotgif">
+    <img src="slot-r.gif" id = "slotgif2">
 
 
-    <p id="money_amount"></p>
+    
     <button id = "backtomenu">back to menu</button>
-    <p id="tilbakemelding"></p>
+    <h2 id="tilbakemelding"></h2>
 
     <div id = "game2">
-        <input type="number" id = "inputNR">
+        <input type="number" value="0" id = "inputNR">
         <button id="knapp" class="button-85" role="button">guess</button>
 
 
@@ -64,17 +71,20 @@
             start race
         </button>
         <div class="hestcol">
+            <div class="bets1">
             <button id = bthrs1>bet 400 horse 1</button>
             <button id = bthrs2>bet 400 horse 2</button>
             <button id = bthrs3>bet 400 horse 3</button>
             <button id = bthrs4>bet 400 horse 4</button>
+        </div>
         <img id="horse1" src="horse.png" >
         <img id="horse2" src="horse.png" >
         <img id="horse3" src="horse.png" >
         <img id="horse4" src="horse.png" >
         </div>
+        
     </div>
-  
+  <h1 id="errornochosen"></h1>
     <body>
 
         <div id = game1>

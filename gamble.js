@@ -2,6 +2,9 @@
 var money = 0
 var randomtall = Math.floor(Math.random () * 10);
 
+var guessrandint = Math.floor(Math.random () * 10)
+console.log(guessrandint)
+
 var EL_moneyButton = document.querySelector('#dollar_img')
 var EL_money = document.querySelector('#money_amount')
 var EL_bet100 = document.querySelector('#bet100')
@@ -30,6 +33,14 @@ var bthrs1 = document.querySelector('#bthrs1')
 var bthrs2 = document.querySelector('#bthrs2')
 var bthrs3 = document.querySelector('#bthrs3')
 var bthrs4 = document.querySelector('#bthrs4')
+const slot = document.querySelector('#slotgif')
+const slot2 = document.querySelector('#slotgif2')
+
+const EL_moneylogo = document.querySelector('.moneylogo')
+
+var chosenhorsebool = false
+
+const EL_nochosen = document.querySelector('#errornochosen')
 
 
 
@@ -65,8 +76,8 @@ game3.style.display = "none"
 
 function clickmoney(){
    money = money + 1;
-    console.log(money);
-    EL_money.innerHTML = money
+    
+    updatemoney()
 
 
 }
@@ -125,15 +136,22 @@ function reveal(){
     EL_back.style.display = "block"
     document.getElementById('randomtall1').innerHTML = (randomtall)
     EL_game2.style.display = "none"
+    EL_moneyButton.style.display = "none"
+    slot.style.display = "none"
+    slot2.style.display = "none"
 
 }
 
 function menureveal(){
     EL_div.style.display = "none"
-    EL_logo.style.display = "none"
+    EL_logo.style.display = "block"
     EL_menu.style.display = "block"
     EL_back.style.display = "none"
     EL_game2.style.display = "none"
+    game3.style.display = "none"
+    EL_moneylogo.style.display = "block"
+    slot.style.display = "block"
+    slot2.style.display = "block"
 
 
 }
@@ -158,34 +176,46 @@ function randittall3(){
 }
 
 function game2(){
-    var randomtall = Math.floor(Math.random () * 10);
-    console.log(randomtall);
+    
     EL_menu.style.display = "none"
     EL_game2.style.display = "block"
     EL_back.style.display = "block"
 
     EL_back.style.top = (parseInt(top) + 1) + "px"
     EL_back.style.left
+    slot.style.display = "none"
+    slot2.style.display = "none"
     
 
 }
 
 
-gjettet_tall = EL_input.value
+
+console.log("guessrandint: " + guessrandint);
 function guess(){
-
-    
-    gjettet_tall = EL_input.value
-
-    if(gjettet_tall == EL_input){
-        tilbakemelding.innerHTML = 'du vinner 5000'
-        money = money + 5000
-    }else if(gjettet_tall > EL_input){
-        tilbakemelding.innerHTML = 'Feil du taper'
-    }else if(gjettet_tall < EL_input){
-        tilbakemelding.innerHTML = 'feil du tapte'
+    console.log(EL_input.value)
+    if (money > 499) {
+        if (EL_input.value == 0) {
+            tilbakemelding.innerHTML = "Du må gjette først"
+            return
+        }
+            money = money - 500
+            gjettet_tall = EL_input.value
+            if (gjettet_tall == guessrandint) {
+            tilbakemelding.innerHTML = 'du vinner 5000'
+            money = money + 5000
+            updatemoney()
+            guessrandint = Math.floor(Math.random () * 10)
+            console.log("guessranding: " + guessrandint)
+            }else {
+                console.log("Du taper")
+                tilbakemelding.innerHTML = 'Feil du taper'
+                updatemoney()
+            }
+        gjettet_tall = (EL_input.value)
+    }   else {
+        tilbakemelding.innerHTML = "Du har ikke nok penger"
     }
-
 }
 
 
@@ -196,6 +226,9 @@ function horsegame(){
       EL_moneyButton.style.display = "none"
       EL_menu.style.display = "none"
       game3.style.display = "block"
+      EL_back.style.display = "block"
+      slot.style.display = "none"
+      slot2.style.display = "none"
 
     
 }
@@ -203,9 +236,12 @@ function horsegame(){
 
 function bethorse1(){
     if(money>399){
+        chosenhorsebool = true
         money = money - 400
-        EL_money.innerHTML = money 
+        updatemoney()
         chosen_horse = 1
+    }   else {
+        EL_nochosen.innerHTML = "You dont have enough money to bet"
     }
     stoprace()
 }
@@ -213,33 +249,49 @@ function bethorse1(){
 
 function bethorse2(){
     if(money>399){
+        chosenhorsebool = true
         money = money - 400
-        EL_money.innerHTML = money 
+        updatemoney()
         chosen_horse = 2
+    }   else {
+        EL_nochosen.innerHTML = "You dont have enough money to bet"
     }
     stoprace()
 }
 
 function bethorse3(){
     if(money>399){
+        chosenhorsebool = true
         money = money - 400
-        EL_money.innerHTML = money 
+        updatemoney()
         chosen_horse = 3
+    }   else {
+        EL_nochosen.innerHTML = "You dont have enough money to bet"
     }
+
+    
     stoprace()
 }
 
 function bethorse4(){
     if(money>399){
+        chosenhorsebool = true
         money = money - 400
-        EL_money.innerHTML = money 
+        updatemoney()
         chosen_horse = 4
+    }   else {
+        EL_nochosen.innerHTML = "You dont have enough money to bet"
     }
     stoprace()
 }
 function raceactive() {
-    raceactive1 = true
-    horseposition1 = 0
+    if (chosenhorsebool == true) {
+        raceactive1 = true
+        horseposition1 = 0
+    }   else {
+        EL_nochosen.innerHTML = "You have not bet on a horse"
+    }
+    
 
     
 
@@ -258,7 +310,7 @@ function raceactive() {
 }
 
 function race(){
-    console.log(chosen_horse)
+    
 
     
     if (raceactive1 == true) {
@@ -330,7 +382,17 @@ function stoprace(){
     
 }
 
+function updatemoney() {
+    EL_money.innerHTML = "You have " + money + "$" 
+    localStorage.moneyST = money
+}
+
+function load() {
+    money = JSON.parse(localStorage.moneyST)
+}
+
     setInterval(race, 10) 
+    setInterval(updatemoney, 100)
 
 EL_bet100.addEventListener('click', bet100)
 EL_moneyButton.addEventListener('click', clickmoney)
@@ -346,3 +408,5 @@ bthrs1.addEventListener('click',bethorse1)
 bthrs2.addEventListener('click',bethorse2)
 bthrs3.addEventListener('click',bethorse3)
 bthrs4.addEventListener('click',bethorse4)
+
+load()

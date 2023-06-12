@@ -5,7 +5,7 @@ body {
   animation: gradient 15s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
-  background-color: rgb(67, 67, 67);
+  background-color: #231f2a
 }
 
 @keyframes gradient {
@@ -20,8 +20,13 @@ body {
   }
 }
 
+img {
+  width: 300px;
+  height: 300px;
+}
+
 .wave {
-  background: rgb(255 255 255 / 25%);
+  background: rgba(114, 117, 121, 0.25);
   border-radius: 1000% 1000% 0 0;
   position: fixed;
   width: 200%;
@@ -72,7 +77,7 @@ body {
     justify-content: center;
     align-items: center;
     margin: auto;
-    width: 225px;
+    width: 250px;
     flex-direction: column;
     
  
@@ -89,6 +94,12 @@ body {
 ;
 
 
+}
+
+
+#dollar_img {
+  width: 450px;
+  height: 450px;
 }
 
 .main1 {
@@ -110,26 +121,28 @@ h1 {
 #money_amount{
     color: aliceblue;
     font: 4em sans-serif;
+    margin: 30px;
+    margin-bottom: 45px;
 }
 
 #gamlogo{
-    width: 300px;
-    height: 300px;
+    width: 450px;
+    height: 450px;
 }
 
 #roulett{
-    width: 150px ;
-    height: 150px;
+    width: 250px ;
+    height: 250px;
 }
 
 #horselogo{
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
 }
 
 #gamestart{
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
 }
 
 #horse1 {
@@ -166,5 +179,40 @@ h1 {
   flex-direction: column;
 }
 
+.moneylogo {
+  align-items: center;
+  text-align: center;
+}
 
+#game2 {
+  
+}
 
+h2 {
+  margin: 6px;
+}
+
+.game1{
+  left: 400px; ;
+}
+
+#slotgif{
+  width:700px ;
+  height:700px ;
+  display:flex ;
+  flex-direction: column;
+  top: 450px;
+  left: 150px;
+  position: absolute;
+
+}
+#slotgif2{
+  width:700px ;
+  height:700px ;
+  display:flex ;
+  flex-direction: column;
+  top: 450px;
+  left: 2300px;
+  position: absolute;
+
+}
