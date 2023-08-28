@@ -4,49 +4,112 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GamGam.com</title>
+    <link rel="stylesheet" href="gamble.css">
+
+    <link rel="shortcut icon" href="gamgam2.png" type="image/x-icon">
 </head>
 <body>
-    <h1>Min overskrift</h1>
-    <h3 id="mitt_tall"></h3>
-    <p id="p_tag"></p>
-    <p class="p_class">Litt mer og annen tekst om tall</p>
+    <!--
+        -en meny side med knapper som leder til forskjellige minigames
+        -en saldo med 1000 poeng
+        -minigame 1 crash
+        -A multiplier starts increasing, and players must decide when to cash out to secure their winnings.
+        If they cash out in time, they win the corresponding multiple of their bet. However, 
+        if they fail to cash out before the crash, they lose their bet. 
 
-    <button id="button">Klikk</button>
 
-    <script>
-        var EL_p_tag = document.querySelector('#p_tag')
-        var EL_mitt_tall = document.querySelector('#mitt_tall')
-        var EL_button = document.querySelector('#button')
 
-        var tall = Math.floor(Math.random () * 10);
-        function skriv_tekst(){
-            console.log(tall)
-            var tall = Math.floor(Math.random () * 10);
+        -minigame 2 mines
+        - where players try to uncover as many mines as possible without triggering an explosion.
+         Players choose a grid of cells to reveal, and each cell may either contain a mine or be safe.
+          The goal is to uncover as many safe cells as possible without hitting a mine. 
+          The more safe cells uncovered, the higher the payout. However, 
+          if a mine is revealed, the game ends, and the player loses their bet
 
-            if (tall > 5){
-                EL_p_tag.innerHTML = 'Tall er høyere en 5'
-            }   else if (tall < 5){
-                EL_p_tag.innerHTML = 'Tall er lavere en 5'
-            }
-            EL_mitt_tall.innerHTML = tall
-        }
 
-        // velge button
-        EL_button.addEventListener('click', skriv_tekst )
+        -minigame 3 horce race
+        -you bet on the horse you think is gonna win every horse gets a random speed and if the horse you bet on wins u get 3X monney 
+
+    -->
+    <div class="moneylogo">
+        <img id = "dollar_img" src="logo.png" alt="Description of the image">
+        <p id="money_amount">You have 0$</p>
+    </div>
+
+    <div id = logo>
+          
         
+        <img src="game1.png" id = "gamestart" class="gamelogos">
+        <img src="roulett.png" id="roulett" class="gamelogos">
+        <img src="horselogo.png" id="horselogo" class="gamelogos">¨
+        
+        
+        <br>
+       
+
+        
+    </div>
+    <img src="slot-r.gif" id = "slotgif">
+    <img src="slot-r.gif" id = "slotgif2">
 
 
-        var tekst = "potet";
-        //document.write(tekst)
-        console.log("Dette er en console beskjed")
-        var hemmelig_passord = "Passord123"
-    </script>  
+    
+    <button id = "backtomenu">back to menu</button>
+    <h2 id="tilbakemelding"></h2>
 
-<div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-</div>
+    <div id = "game2">
+        <input type="number" value="0" id = "inputNR">
+        <button id="knapp" class="button-85" role="button">guess</button>
+
+
+
+    </div>
+
+    <div id="game3">
+        <button id="startrace">
+            start race
+        </button>
+        <div class="hestcol">
+            <div class="bets1">
+            <button id = bthrs1>bet 400 horse 1</button>
+            <button id = bthrs2>bet 400 horse 2</button>
+            <button id = bthrs3>bet 400 horse 3</button>
+            <button id = bthrs4>bet 400 horse 4</button>
+        </div>
+        <img id="horse1" src="horse.png" >
+        <img id="horse2" src="horse.png" >
+        <img id="horse3" src="horse.png" >
+        <img id="horse4" src="horse.png" >
+        </div>
+        
+    </div>
+  <h1 id="errornochosen"></h1>
+    <body>
+
+        <div id = game1>
+            <img src="gamgam2.png" id="gamlogo">
+            <button id = "bet100">bet 100</button><br>
+            <br><button id = "bet200">bet 200</button>
+            <button id = bet500> bet 500</button>
+            
+            <p id="randomtall1"></p>
+
+        </div>
+    </div>
+
+
+    <div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+     </div>
+
+
+
+
+    
+<script src="./gamble.js"></script>
+
 </body>
 </html>
