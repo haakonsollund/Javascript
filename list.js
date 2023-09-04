@@ -1,18 +1,33 @@
-var EL_bilmerke = document.querySelector('#bilmerkeV')
-var EL_kostnad = document.querySelector('#kostnadV')
-var EL_modell = document.querySelector('#mddellV')
-var EL_motor = document.querySelector('#motorV')
-var EL_topspeed = document.querySelector('#topspeedV')
+var inputs = document.querySelectorAll("input[type='text']")
 var saveinfo = document.querySelector('#saveinfo')
+var table = document.querySelector('#tbody')
+
+console.log(inputs)
 
 
 
 
 
-function addtotable(){
+function save_function(){
+     var tr = "<tr>"
+    
+
+    inputs.forEach(
+        function(node,index){
+            console.log(node.value)
+            tr += "<td>" + node.value + "</td>"
+        })
+    tr += "</tr>"
+
+    
+    console.log("button clicked.")
+    table.innerHTML += tr
+
+    console.log(tr)
+}
     
 
 
-}
 
-saveinfo.addEventListener('click', addtotable)
+
+saveinfo.addEventListener("click", save_function)
