@@ -10,45 +10,47 @@ var int = 0
 
 
 function save_function(){
-     var tr = "<tr>"
+    var tr = document.createElement("tr");
     
-
+    var deleteButton = document.createElement("button");
     inputs.forEach(
         function(node,index){
-            int = index
+            var td = document.createElement("td");
+            
             console.log(node.value)
-            tr +=  b"<td>" + node.value + "</td>"
+
+            td.textContent += node.value
+            tr.appendChild(td)
+            
+          
         })
-    tr += "<td><button id='btn" + index + "'>delete</button></td>"
-    tr += "</tr>"
-
-    var DeleteButton = document.getElementsByClassName("btn")
-        console.log(DeleteButton)
-
-    for(var i = 0; i < DeleteButton.length; i++){ 
-        var test123 = document.getElementById('btn' + i)
-        test123.addEventListener("click", removeitem);
-
-        console.log("added delete event")
-        
-    }           
-
+   
+    
+    var td = document.createElement("td");
+    tr.appendChild(td)
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", removeItem);
+    td.appendChild(deleteButton)
 
     
     console.log("button clicked.")
-    table.innerHTML += tr
+    table.appendChild(tr);
 
     console.log(tr)
 }
 
 for(var i = 0; i < DeleteButton.length; i++){ 
-    DeleteButton[i].addEventListener("click", removeitem); 
+    DeleteButton[i].addEventListener("click", removeItem); 
     
 }
     
-function removeitem(){
+function removeItem(){
     this.parentNode.parentNode.remove();
     console.log("delete button clicked")
+}
+
+function readTable(){
+    const table =document.getElementById('tbody') 
 }
 
 
