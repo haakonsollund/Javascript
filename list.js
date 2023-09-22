@@ -3,6 +3,7 @@ var saveinfo = document.querySelector('#saveinfo')
 var table = document.querySelector('#tbody')
 var DeleteButton = document.getElementsByClassName("btn")
 var tr_rows = document.getElementsByTagName("tr");
+const save = document.querySelector('#save');
 
 console.log(inputs)
 
@@ -105,4 +106,30 @@ function save_row(row){
 
 saveinfo.addEventListener("click", save_function)
 
+function lagre() {
+    console.log("lagre knapp trykket")
+    const table = document.getElementById('mytable').getElementsByTagName('tbody')[0];
+    console.log(table)
+    const rows = table.getElementsByTagName('tr');
+    const data = [];
 
+    for (let i = 0; i < rows.length; i++){
+        const cells = rows[i].getElementsByTagName('td');
+        const rowdata = {};
+        rowdata.id = cells[0].textContent
+        rowdata.merke = cells[1].textContent
+        rowdata.modell = cells[2].textContent
+        rowdata.price = cells[3].textContent
+        rowdata.motor = cells[4].textContent
+        rowdata.topspeed= cells[5].textContent
+        data.push(rowdata);
+
+    }
+    return data;
+    console.log(localStorage)
+}
+
+//const tabledata = lagre();
+//localStorage.setItem('tabledata',JSON.stringify(tabledata));
+
+save.addEventListener('click', lagre)
